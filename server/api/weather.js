@@ -1,5 +1,7 @@
 const axios = require("axios");
 
+const WEATHER = require("../models/Weather");
+
 // Configuring the path to read the environment variable file, .env, to get the weather api key
 require('dotenv').config({path: "./../../../.env"});
 
@@ -27,6 +29,47 @@ class Weather {
         // Awaitable call to get the information from the weather api and then return the data.
         // TODO: Add error handling for this call
         return (await axios(url)).data;
+    }
+
+    /**
+     * Saves the weather data using the zipcode as the unique identifier
+     * If it already exists, replace, if not, then add.
+     *
+     * @param {number} zipCode The zipcode used to identify the document to upsert
+     * @param {string} data Weather data to save/update
+     * @return {JSON} The data response from the weather api data.
+     */
+    saveWeatherDataToMongo = async (zipCode, data) => {
+        const filter = {
+            zip: zipCode
+        }
+
+        const replace = {
+            ...filter,
+            ...data,
+            data: Date.now()
+        }
+        await this.findOneReplace(filter, replace);
+    }
+
+    /**
+     * Saves Weather data to MongoDb
+     *
+     * @param {number} zipCode The zipcode used as unique identifier to find the document from mongo
+     * @return {JSON} The data response from the mongodb.
+     */
+    getWeatherDataFromMongo = async (zipCode) => {
+        return WEATHER.findOne({zip: zipCode});
+    }
+
+    /**
+     * If a document already exists with the filter, then replace, if not, add.
+     *
+     * @param {{zip: number}} filter The filter is the zipcode used as unique identifier to find the document from mongo
+     * @return {JSON} The data response from the mongodb.
+     */
+    async findOneReplace(filter, replace) {
+        await WEATHER.findOneAndReplace(filter, replace, {new: true, upsert: true});
     }
 }
 
