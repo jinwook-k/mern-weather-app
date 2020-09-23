@@ -6,10 +6,22 @@ import App from './App';
 import Header from "./Components/Header";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+// Adding redux and reducers
+import { createStore } from 'redux'
+import { Provider } from 'react-redux'
+import rootReducer from './reducers'
+
+// Creates our store to use our reducers and the chrome extension to debug the redux store
+const store = createStore(
+    rootReducer,
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
+
 ReactDOM.render(
-    <React.StrictMode>
-        <Header />
+    // Connects the store to our application
+    <Provider store={store}>
+        <Header/>
         <App />
-    </React.StrictMode>,
+    </Provider>,
     document.getElementById('root')
 );
