@@ -51,9 +51,20 @@ class WeatherForm extends Component {
         localStorage.setItem("CurrentWeatherData", JSON.stringify(weatherData));
     }
 
+    saveToMongo = (event) => {
+        axios.post("/api/weatherMongo", {
+            zipCode: this.state.zipCodeInput,
+            tempMetric: this.state.tempMetric
+        }).then(response => {
+            let weatherData = response.data;
+
+            // do whatever you want with the weather data
+        });
+    }
+
     render() {
         return (
-            <Form className="weather-form" onSubmit={this.saveFormData}>
+            <Form className="weather-form" onSubmit={this.saveToMongo}>
 
                 <Row type="flex" justify="center" align="center" className="zipCode">
                     <Col>
