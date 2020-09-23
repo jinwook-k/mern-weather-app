@@ -1,0 +1,2 @@
+WEATHER_KEY=[Weather API key can be found at https://home.openweathermap.org/api_keys]
+DB=[mongo database connection string can be found at on cloud.mongodb.com > Clusters > Connect button]
