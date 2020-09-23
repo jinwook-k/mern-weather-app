@@ -1,0 +1,14 @@
+.weather-form {
+  .zipCode {
+    margin: 20px 0;
+
+    .zipCodeInput {
+      max-width: 200px;
+      display: inline-block;
+    }
+  }
+
+  .save-btn {
+    margin-top: 15px;
+  }
+}

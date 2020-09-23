@@ -1,0 +1,42 @@
+.weather-info {
+  display: grid;
+
+  .city-name {
+    text-decoration: underline;
+    align-self: center;
+    justify-self: center;
+  }
+
+  .overcast {
+    display: grid;
+
+    .overcast-img,
+    .overcast-description {
+      align-self: center;
+      justify-self: center;
+    }
+  }
+
+  .current-weather {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    .humidity,
+    .curr-temp,
+    .feels-like {
+      align-self: center;
+      justify-self: center;
+    }
+  }
+
+  .temps {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    .min-temp,
+    .max-temp {
+      align-self: center;
+      justify-self: center;
+    }
+  }
+}

@@ -1,0 +1,29 @@
+@import "Header";
+@import "WeatherForm";
+@import "Container";
+@import "WeatherPanels";
+
+@font-face {
+  font-family: MajorMonoDisplay;
+  src: url("../assets/Fonts/MajorMonoDisplay-Regular.ttf");
+}
+
+@font-face {
+  font-family: ShareTechMono;
+  src: url("../assets/Fonts/ShareTechMono-Regular.ttf");
+}
+
+.App {
+  display: grid;
+  grid-template-columns: 1fr 9fr 1fr;
+  font-family: ShareTechMono, serif;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
