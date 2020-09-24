@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "setup": "npm install && cd client && npm install",
     "start": "node server/server.js",
     "server": "nodemon server/server.js",
