@@ -1,6 +1,8 @@
 ## What is this?
 This is a MERN stack web application that you can add to your portfolio and mess around with.
 
+Demo: https://mernweatherapp.herokuapp.com/
+
 **Weathering With You** is a weather web app to get the current weather data of the zip code you submit into the form.
  Consists of 4 main components
  - the header at the top
