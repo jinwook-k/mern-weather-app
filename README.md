@@ -52,7 +52,16 @@ Copy/pasta that key to the .env file using `WEATHER_KEY` as your key
 WEATHER_KEY=1234567890asdfjkl
 ```
 
-You can now run your local.
+## Run Locally
+**Note:** The mongo connection is commented out in `server.js`. Just uncomment the code block to connect to mongo:
+```javascript
+// mongoose.connect(process.env.DB, {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true
+// }).then(() => console.log('MongoDB Connected...')).catch(err => console.log(err));
+```
+
+You can now run your local.  
 Go to your root directory and start your web app:
 ```javascript
 npm run dev
